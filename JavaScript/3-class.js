@@ -6,6 +6,7 @@ class Counter {
     this.end = end;
     this.step = step;
   }
+
   [Symbol.asyncIterator]() {
     const end = this.end;
     let i = this.begin;
@@ -39,8 +40,4 @@ console.log({ step1, step2, step3, step4 });
   for await (const step of iterable) {
     console.log({ step });
   }
-})();
-
-(async () => {
-  // console.log({ steps: [...iterable] });
 })();

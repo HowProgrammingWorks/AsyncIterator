@@ -22,8 +22,3 @@ const gen = async function* () {
     console.log({ step });
   }
 })();
-
-(async () => {
-  const iterable = gen();
-  //console.log({ steps: [await ...iterable] });
-})();
