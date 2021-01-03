@@ -11,7 +11,7 @@ const gen = async function* () {
   const step2 = iterator.next();
   const step3 = iterator.next();
   const step4 = iterator.next();
-  Promise.all([step1, step2, step3, step4]).then(steps => {
+  Promise.all([step1, step2, step3, step4]).then((steps) => {
     console.log({ steps });
   });
 }
