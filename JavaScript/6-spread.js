@@ -32,3 +32,8 @@ const iterable = {
   },
 };
 
+// Spread operator
+{
+  Promise.all([...iterable]).then(console.log.bind(null, 'spread:'));
+}
+
