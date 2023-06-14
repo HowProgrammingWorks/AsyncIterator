@@ -38,12 +38,10 @@ const iterable = {
 }
 
 // Destructuring assignment
-{
+(async () => {
   const [step1, step2, step3] = [...iterable];
-  step1.then(console.log.bind(null, 'DA:'));
-  step2.then(console.log.bind(null, 'DA:'));
-  step3.then(console.log.bind(null, 'DA:'));
-}
+  console.log('DA:', await step1, await step2, await step3);
+})();
 
 // Other tests
 
