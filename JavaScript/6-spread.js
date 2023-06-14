@@ -37,3 +37,10 @@ const iterable = {
   Promise.all([...iterable]).then(console.log.bind(null, 'spread:'));
 }
 
+// Destructuring assignment
+{
+  const [step1, step2, step3] = [...iterable];
+  step1.then(console.log.bind(null, 'DA:'));
+  step2.then(console.log.bind(null, 'DA:'));
+  step3.then(console.log.bind(null, 'DA:'));
+}
