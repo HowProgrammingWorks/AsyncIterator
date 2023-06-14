@@ -44,3 +44,41 @@ const iterable = {
   step2.then(console.log.bind(null, 'DA:'));
   step3.then(console.log.bind(null, 'DA:'));
 }
+
+// Other tests
+
+// for-await works fine
+(async () => {
+  for await (const step of iterable) {
+    console.log('for-await:', { step });
+  }
+})();
+
+// yield* works fine too
+(async () => {
+  const gen = async function* () {
+    yield* iterable;
+  };
+  const genIter = gen();
+
+  for await (const step of genIter) {
+    console.log('yield*:', { step });
+  }
+})();
+
+// next() works but with a hack
+(async () => {
+  const iterator = iterable[Symbol.iterator]();
+  let done = false;
+
+  do {
+    // `await iterator.next()` does't work, because only `value` is Promise
+    const step = iterator.next();
+
+    // Use await or step.value.then() here
+    const value = await step.value;
+
+    done = step.done;
+    console.log('next:', { value, done });
+  } while (!done);
+})();
