@@ -16,9 +16,11 @@ const gen = async function* () {
   });
 }
 
-(async () => {
+const main = async () => {
   const iterable = gen();
   for await (const step of iterable) {
     console.log({ step });
   }
-})();
+};
+
+main();

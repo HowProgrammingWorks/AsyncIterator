@@ -5,9 +5,9 @@ const asyncIterator = {
   async next() {
     return {
       value: this.counter++, // current value
-      done: this.counter > 3 // boolean
+      done: this.counter > 3, // boolean
     };
-  }
+  },
 };
 
 const step1 = asyncIterator.next();

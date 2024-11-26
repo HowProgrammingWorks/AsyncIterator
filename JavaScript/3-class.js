@@ -15,11 +15,11 @@ class Counter {
       async next() {
         const item = {
           value: i,
-          done: i >= end
+          done: i >= end,
         };
         i += step;
         return item;
-      }
+      },
     };
     return iterator;
   }
@@ -36,8 +36,10 @@ const step3 = iterator.next();
 const step4 = iterator.next();
 console.log({ step1, step2, step3, step4 });
 
-(async () => {
+const main = async () => {
   for await (const step of iterable) {
     console.log({ step });
   }
-})();
+};
+
+main();
