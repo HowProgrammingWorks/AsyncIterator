@@ -2,6 +2,8 @@
 
 const gen = async function* () {
   yield* [0, 1, 2];
+  yield 3;
+  yield* [4, 5, 6];
 };
 
 {
